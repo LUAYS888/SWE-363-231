@@ -1,0 +1,33 @@
+header {
+    text-transform: uppercase;
+
+}
+
+
+body {
+    background-color: lightgray;
+    color: black;
+}
+
+a {
+    color: rgb(70, 55, 55);
+
+}
+
+.top {
+    background-color: rgb(60, 18, 18);
+    color: whitesmoke;
+}
+
+a:hover{
+    color: red;
+}
+em {
+    background-color: darkslategray;
+    color: wheat;
+}
+
+#the_most_important {
+    text-transform: uppercase;
+    background-color: darkcyan;
+}
