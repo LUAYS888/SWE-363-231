@@ -79,3 +79,66 @@ tr:nth-child(even) {
   input{
     height: 20px;
   }
+
+  input[type=submit]:hover {
+    background-color: lightblue;
+    color: black;
+    transition: 300ms;
+  }
+
+  input[type=reset]:hover {
+    background-color: lightblue;
+    color: black;
+    transition: 300ms;
+  }
+
+  
+ .navbar {
+    
+    color: black;
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.bar {
+    width: 50px;
+    height: 5px;
+    background-color: black;
+    margin: 3px 0;
+    
+    
+}
+
+.nav-links li {
+    margin: 0 10px;
+    opacity: 0;          /* You can not see it here */
+    transform: translateY(-20px);
+    font-size: large;
+    transition-duration: 0.8s;
+}
+
+.navbar:hover .nav-links #first {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.navbar:hover .nav-links #second {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;         /*  To add some delay btw them */  
+    
+}
+
+
+
+
+
+
+
+
+
+
