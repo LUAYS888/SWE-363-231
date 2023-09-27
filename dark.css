@@ -173,5 +173,20 @@ tr:nth-child(even) {
   to   { display: none; }
 }
 
+#bottom_right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
 
+.text_img_container{
+  position: relative;
+  text-align: center;
+  color: white;
+  display: inline;
+}
+
+td {
+  text-align: center;
+}
 
