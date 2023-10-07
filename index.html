@@ -201,6 +201,10 @@
             <br>
             <br>
             <br>
+
+            <h1>Different Car Horse Powers</h1>
+            <p id="CarPara"></p>
+
             
             <aside id="lastLinks">
                 <a href="contactPage.html#helpCenter" style="font-size: 30px; margin: 25px;">Help Center</a>
@@ -233,9 +237,52 @@
 
     </body>
     <script>
-        // document.querySelector()
-        // document.querySelectorAll()
-        // .innerText()
-        // turn === "x"      //To check the value and the type
+            // const data = null;
+
+            // const xhr = new XMLHttpRequest();
+            // xhr.withCredentials = true;
+
+            // xhr.addEventListener('readystatechange', function () {
+            //     if (this.readyState === this.DONE) {
+            //         console.log(this.responseText);
+            //     }
+            // });
+
+            // xhr.open('GET', 'https://car-api2.p.rapidapi.com/api/vin/1GTG6CEN0L1139305');
+            // xhr.setRequestHeader('X-RapidAPI-Key', '006b4b0c4emsh380ce7533ec2cdap1a6e26jsn43880e8a1e1c');
+            // xhr.setRequestHeader('X-RapidAPI-Host', 'car-api2.p.rapidapi.com');
+
+            // xhr.send(data);
+
+
+            const data = null;
+
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener('readystatechange', function () {
+                if (this.readyState === this.DONE) {
+                     //console.log(xhr.response.data);
+                     let myArray= xhr.response.data
+                     myArray.forEach(element => {
+                        //console.log(element.horsepower_hp)
+                        document.getElementById("CarPara").innerHTML += element.horsepower_hp
+                        document.getElementById("CarPara").innerHTML += " "
+                        
+                        
+                     });
+                    
+                    
+                }
+            });
+
+            xhr.open('GET', 'https://car-api2.p.rapidapi.com/api/engines?verbose=yes&direction=asc&sort=id');
+            xhr.responseType = 'json';
+            xhr.setRequestHeader('X-RapidAPI-Key', '006b4b0c4emsh380ce7533ec2cdap1a6e26jsn43880e8a1e1c');
+            xhr.setRequestHeader('X-RapidAPI-Host', 'car-api2.p.rapidapi.com');
+
+            xhr.send(data);
+
+            
     </script>
 </html>
