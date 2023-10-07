@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
     <style>
         
         body{
@@ -33,6 +33,12 @@
         .cell:hover{
             background-color: blanchedalmond;
         }
+        .cell:focus-visible {
+            /* outline-style: groove;
+            outline-width: thick; */
+            outline: thick groove rgb(19, 15, 16);
+                
+        }
 
         .row {
             display: flex;
@@ -52,26 +58,37 @@
     </h1>
     <h2 id="allowing"></h2>
     <!-- Board -->
-    <div class="board">
-        <div class="row">
-            <div id="0" class="cell" style="background-color: beige;" ></div>
-            <div id="1" class="cell" style="background-color: beige;" ></div>
-            <div id="2" class="cell" style="background-color: beige;" ></div>
+
+    <div style="display: flex; justify-content: space-around;">
+        <div style="margin-right: 120px">
+            <div class="board">
+                <div class="row">
+                    <div id="0" class="cell" style="background-color: beige;" tabindex=0 onkeypress="cellClicked()"></div>
+                    <div id="1" class="cell" style="background-color: beige;" tabindex=1 onkeypress="cellClicked()"></div>
+                    <div id="2" class="cell" style="background-color: beige;" tabindex=2 ></div>
+                </div>
+                <div class="row">
+                    <div id="3" class="cell" style="background-color: beige;" tabindex=3></div>
+                    <div id="4" class="cell" style="background-color: beige;" tabindex=4></div>
+                    <div id="5" class="cell" style="background-color: beige;" tabindex=5></div>
+                </div>
+                <div class="row">
+                    <div id="6" class="cell" style="background-color: beige;" tabindex=6></div>
+                    <div id="7" class="cell" style="background-color: beige;" tabindex=7></div>
+                    <div id="8" class="cell" style="background-color: beige;" tabindex=8></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <input id="reset" type="reset" value="Reset the game" style="font-size: 25px;" tabindex=9 />
         </div>
-        <div class="row">
-            <div id="3" class="cell" style="background-color: beige;" ></div>
-            <div id="4" class="cell" style="background-color: beige;" ></div>
-            <div id="5" class="cell" style="background-color: beige;" ></div>
-        </div>
-        <div class="row">
-            <div id="6" class="cell" style="background-color: beige;" ></div>
-            <div id="7" class="cell" style="background-color: beige;" ></div>
-            <div id="8" class="cell" style="background-color: beige;" ></div>
+        <div>
+            <h1>Press Tab button to move around the cells</h1>
+            <h1>Press Enter button to choose a cell</h1>
+            <br>
+            <h1>Enjoy!</h1>
         </div>
     </div>
-    <br>
-    <br>
-    <input id="reset" type="reset" value="Reset the game" style="font-size: 25px;" />
     <script>
        
 
@@ -81,6 +98,8 @@
         let gameEnded = false ; 
         let counter = 0; 
         let filledCells=[] 
+
+        
 
         
         function checkForWinner(){
@@ -125,7 +144,9 @@
         // when user clicks the cell show the letter (unless there is a letter)
         const board = document.querySelector(".board") ; 
         board.addEventListener("click",cellClicked) ; 
+        document.addEventListener('keypress', cellClicked);
         function cellClicked(event){
+            
             
             // get the cell 
             const cell = event.target
@@ -156,6 +177,7 @@
                 if (checkForWinner()[0] == "X"){
                     document.querySelector("#turn ").innerHTML = "X wins"
                     board.removeEventListener("click",cellClicked) ;
+                    document.removeEventListener('keypress',cellClicked) ;
                     for (i=1;checkForWinner().length-1; i++ ){
                         document.getElementById(checkForWinner()[i]).setAttribute("style", "background-color: #ae3c3c");
                     }
@@ -164,6 +186,8 @@
                 else if (checkForWinner()[0] =="O"){
                     document.querySelector("#turn ").innerHTML = "O wins"
                     board.removeEventListener("click",cellClicked) ;
+                    document.removeEventListener('keypress',cellClicked) ;
+
                     for (i=1;checkForWinner().length-1; i++ ){
                         document.getElementById(checkForWinner()[i]).setAttribute("style", "background-color: #ae3c3c");
                     }
