@@ -93,50 +93,6 @@
             </section>
             
             <main>
-                <!-- <table border="3" width="50%" height="50%">
-                    <tr>
-                        <th>Item</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Link</th>
-                    </tr>
-                    <tr>
-                        <td>Accord</td>
-                        <td >
-                            <div class="text_img_container">
-                                <img class="carPhoto" src="Accord.jfif" alt="Error!"/>
-                                <div id="bottom_right">LS</div>
-                            </div>
-                        </td>
-                        <td class="top">130000 SR</td>
-                        <td><a href="https://www.honda-mideast.com/en-sa" target="_blank">Click here</a></td>
-                    </tr>
-                    <tr>
-                        <td>Camry</td>
-                        <td>
-                            <div class="text_img_container">
-                                <img class="carPhoto" src="Camry.jfif " alt="Error!"/>
-                                <div id="bottom_right" style="color: black;">LS</div>
-                            </div>
-                            
-                        </td>
-                        <td>120000 SR</td>
-                        <td><a href="https://www.toyota.com.sa/" target="_blank">Click here</a></td>
-                    </tr>
-                    <tr>
-                        <td>Taurus</td>
-                        <td>
-                            <div class="text_img_container">
-                                <img class="carPhoto" src="Taurus.jfif" alt="Error!"/>
-                                <div id="bottom_right" style="color: black;">LS</div>
-                            </div>
-
-                            
-                        </td>
-                        <td>110000 SR</td>
-                        <td><a href="https://www.ford.com/" target="_blank">Click here</a></td>
-                    </tr>
-                </table> -->
                 
 
                 <div class="container text-center" style="max-width:max-content;">
@@ -204,6 +160,11 @@
 
             <h1>Different Car Horse Powers</h1>
             <p id="CarPara"></p>
+            <br>
+            <br>
+            <br>
+            <h1>Different players news</h1>
+            <p id="playersPara"></p>
 
             
             <aside id="lastLinks">
@@ -236,23 +197,8 @@
         
 
     </body>
-    <script>
-            // const data = null;
-
-            // const xhr = new XMLHttpRequest();
-            // xhr.withCredentials = true;
-
-            // xhr.addEventListener('readystatechange', function () {
-            //     if (this.readyState === this.DONE) {
-            //         console.log(this.responseText);
-            //     }
-            // });
-
-            // xhr.open('GET', 'https://car-api2.p.rapidapi.com/api/vin/1GTG6CEN0L1139305');
-            // xhr.setRequestHeader('X-RapidAPI-Key', '006b4b0c4emsh380ce7533ec2cdap1a6e26jsn43880e8a1e1c');
-            // xhr.setRequestHeader('X-RapidAPI-Host', 'car-api2.p.rapidapi.com');
-
-            // xhr.send(data);
+    <script type="module">
+            
 
 
             const data = null;
@@ -283,6 +229,36 @@
 
             xhr.send(data);
 
+
+
+            
+ 
+            const url = 'https://transfermarket.p.rapidapi.com/news/list-by-club?id=631&domain=de';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '006b4b0c4emsh380ce7533ec2cdap1a6e26jsn43880e8a1e1c',
+                    'X-RapidAPI-Host': 'transfermarket.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                let myArray2= result.news
+                myArray2.forEach(element => {
+                        // console.log(element.newsHeadline);
+                        document.getElementById("playersPara").innerHTML += element.newsHeadline  
+                        document.getElementById("playersPara").innerHTML += "-----"
+                        
+                        
+                        
+                     });
+
+                //console.log(result.news.newsHeadline);
+            } catch (error) {
+                console.error(error);
+            }
             
     </script>
 </html>
