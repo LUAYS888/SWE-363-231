@@ -202,6 +202,42 @@
 
     </body>
     <script type="module">
+
+        // setTimeout(() => {
+        //     window.location.replace("requestCar.html") ;
+        // }, 6000);
+
+
+
+        let initial;
+
+        function invocation() {
+            initial = window.setTimeout( 
+            function() {
+                window.location.replace("screenSaving2.html") ;
+            }, 60000);
+        }
+
+        invocation();
+
+
+
+        document.onclick = function() {
+            
+            clearTimeout( initial )
+            invocation();
+           
+        }
+
+        document.onmousemove = function() {
+            
+            clearTimeout( initial )
+            invocation();
+           
+        }
+
+
+
             // const canvas = document.querySelector('.myCanvas');
             // const width = canvas.width = 650;
             // const height = canvas.height = 500;
