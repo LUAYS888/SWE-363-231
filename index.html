@@ -99,13 +99,17 @@
                     <div class="row g-2">
                       <div class="col-6">
                         <div class="p-3">
-                            <div class="card" style="width: 25rem; max-height: 1000rem;">
-                                <img src="Accord.jfif" class="card-img-top" >
+                            <div class="card" style="width: 25rem; max-height: 1200px;">
+                                <!-- <img src="Accord.jfif" class="card-img-top" > -->
+                                <div  id="0"></div> 
                                 <div class="card-body">
-                                  <h5 class="card-title" style="font-size: 50px;">Accord</h5>
-                                  <p class="card-text" style="font-size: 30px;">2022</p>
-                                  <p class="card-text" style="font-size: 30px;">130000 SR</p>
-                                  <a href="https://www.honda-mideast.com/en-sa" class="btn btn-primary">See the car</a>
+                                  <!-- <div  id="0"><br></div>  -->
+                                  <br>
+                                  <h5 class="card-title" id="0name" style="font-size: 80px; color: white;"></h5>
+                                  <p class="card-text" style="font-size: 30px;" id="0year" ></p>
+                                  <p class="card-text" style="font-size: 30px;" id="0price"></p>
+                                  <!-- <a href="https://www.honda-mideast.com/en-sa" class="btn btn-primary">See the car</a> -->
+                                  <p id="0url"></p>
                                 </div>
                             </div>
                         </div>
@@ -113,12 +117,14 @@
                       <div class="col-6">
                         <div class="p-3">
                             <div class="card" style="width: 25rem; max-height: 1000rem;">
-                                <img src="Camry.jfif" class="card-img-top" >
+                                <!-- <img src="Camry.jfif" class="card-img-top" > -->
+                                <div  id="1"></div> 
                                 <div class="card-body">
-                                  <h5 class="card-title">Camry</h5>
-                                  <p class="card-text">2022</p>
-                                  <p class="card-text">120000 SR</p>
-                                  <a href="https://www.toyota.com.sa/" class="btn btn-primary">See the car</a>
+                                  <h5 class="card-title" id="1name"></h5>
+                                  <p class="card-text" id="1year"></p>
+                                  <p class="card-text" id="1price"></p>
+                                  <!-- <a href="https://www.toyota.com.sa/" class="btn btn-primary">See the car</a> -->
+                                  <p id="1url"></p>
                                 </div>
                             </div>
                         </div>
@@ -126,12 +132,14 @@
                       <div class="col-6">
                         <div class="p-3">
                             <div class="card" style="width: 25rem; max-height: 1000rem;">
-                                <img src="Taurus.jfif" class="card-img-top" >
+                                <!-- <img src="Taurus.jfif" class="card-img-top" > -->
+                                <div  id="2"></div> 
                                 <div class="card-body">
-                                  <h5 class="card-title">Taurus</h5>
-                                  <p class="card-text">2019</p>
-                                  <p class="card-text">110000 SR</p>
-                                  <a href="https://www.ford.com/" class="btn btn-primary">See the car</a>
+                                  <h5 class="card-title" id="2name"></h5>
+                                  <p class="card-text" id="2year"></p>
+                                  <p class="card-text" id="2price"></p>
+                                  <!-- <a href="https://www.ford.com/" class="btn btn-primary">See the car</a> -->
+                                  <p id="2url"></p>
                                 </div>
                             </div>
                         </div>
@@ -139,12 +147,14 @@
                       <div class="col-6">
                         <div class="p-3">
                             <div class="card" style="width: 25rem; max-height: 1000rem;">
-                                <img src="mazda.jpg" class="card-img-top" >
+                                <!-- <img src="mazda.jpg" class="card-img-top" > -->
+                                <div  id="3"></div> 
                                 <div class="card-body">
-                                  <h5 class="card-title">Mazda 6 </h5>
-                                  <p class="card-text">2020</p>
-                                  <p class="card-text">125000 SR</p>
-                                  <a href="https://mazda.com.sa/vehicles/mazda6" class="btn btn-primary">See the car </a>
+                                  <h5 class="card-title" id="3name"> </h5>
+                                  <p class="card-text" id="3year"></p>
+                                  <p class="card-text" id="3price"></p>
+                                  <!-- <a href="https://mazda.com.sa/vehicles/mazda6" class="btn btn-primary">See the car </a> -->
+                                  <p id="3url"></p>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +195,9 @@
             <br>
             <br>
             <br>
-            
+<!-- 
+            <div style="background-color: blue;" id="imgDiv"></div>  -->
+            <div id="divUrl"></div>
     
     
             <footer>
@@ -203,6 +215,81 @@
     </body>
     <script type="module">
 
+
+        function displayUrl(n, url) { 
+                        let divLocationUrl = document.getElementById(n+"url");
+                        
+                        // Create anchor element. 
+                        var a = document.createElement('a');  
+                            
+                        // Create the text node for anchor element. 
+                        var link = document.createTextNode("See the car"); 
+                            
+                        // Append the text node to anchor element. 
+                        a.appendChild(link);  
+                            
+                        // Set the title. 
+                        a.title = "see the car";  
+                            
+                        // Set the href property. 
+                        a.href = url;  
+                        a.class= " btn-primary"
+                            
+                        // Append the anchor element to the body. 
+                        divLocationUrl.appendChild(a);  
+        } 
+       
+
+
+
+        
+                
+        function displayImage(n, pic) { 
+                    let divLocation = document.getElementById(n); 
+                    let imgElement = document.createElement("img"); 
+                    imgElement.src = pic 
+                    divLocation.append(imgElement); 
+         } 
+        
+
+
+
+
+        class Car {
+        constructor(name, year, price, photo, carUrl) {
+            this.name = name;
+            this.year = year;
+            this.price = price
+            this.photo = photo
+            this.carUrl = carUrl 
+        }
+        }
+
+        const Car1 = new Car("Accord", 2022, "130000SR","Accord.jfif", "https://www.honda-mideast.com/en-sa" );
+        const Car2 = new Car("Camry", 2022, "120000SR","Camry.jfif", "https://www.toyota.com.sa/" );
+        const Car3 = new Car("Taurus", 2019, "110000SR","Taurus.jfif", "https://www.ford.com/" );
+        const Car4 = new Car("Mazda", 2020, "125000SR","mazda.jpg" ,"https://mazda.com.sa/vehicles/mazda6" );
+        
+
+
+
+        let carsArray= [Car1, Car2, Car3, Car4]
+        let i=0 
+        carsArray.forEach(car => {
+           
+            document.getElementById(i+name).innerHTML= car.name
+            document.getElementById(i+"year").innerHTML= car.year
+            document.getElementById(i+"price").innerHTML= car.price
+            displayImage(i, car.photo)
+            displayUrl(i, car.carUrl)
+
+            i++
+        })
+
+
+
+
+
         // setTimeout(() => {
         //     window.location.replace("requestCar.html") ;
         // }, 6000);
@@ -211,7 +298,7 @@
 
         let initial;
 
-        function invocation() {
+        function invocation() {                      //To Show the screen saver 
             initial = window.setTimeout( 
             function() {
                 window.location.replace("screenSaving2.html") ;
@@ -238,63 +325,12 @@
 
 
 
-            // const canvas = document.querySelector('.myCanvas');
-            // const width = canvas.width = 650;
-            // const height = canvas.height = 500;
-            // const ctx = canvas.getContext('2d');
-
-            // ctx.fillStyle = 'rgb(0,0,0)';
-            // ctx.fillRect(0, 0, 650, 500);
-            // // window.innerHeight
-
-            // const colorPicker = document.querySelector('input[type="color"]');
-            // const sizePicker = document.querySelector('input[type="range"]');
-            // const output = document.querySelector('.output');
-            // const clearBtn = document.querySelector('#clearS');
-
-            // function degToRad(degrees) {
-            // return degrees * Math.PI / 180;
-            //      };
-            
-            // sizePicker.addEventListener('input', () => output.textContent = sizePicker.value); 
-
-            //     // update mouse pointer coordinates
-            // let curX=0
-            // let curY=0   
-            // document.addEventListener('mousemove', e => {
-            //     curX = e.clientX
-            //     curY = e.clientY 
-            // });
-            
-            // let pressed= false
-            // canvas.addEventListener('mousedown', () => pressed = true);
-            // canvas.addEventListener('mouseup', () => pressed = false);
-            // clearBtn.addEventListener('click', () => {
-            //     ctx.fillStyle = 'rgb(0,0,0)';
-            //     ctx.fillRect(0, 0, 650, 500);
-            // });
-
-            // let size = 10
-
-            // function draw() {
-            //     ctx.fillStyle = colorPicker.value;
-                
-            //     if (pressed){
-            //         ctx.beginPath();
-            //         ctx.arc(curX - 320 , curY - 85, sizePicker.value, degToRad(0), degToRad(360), false);
-            //         ctx.fill();
-            //     }
-
-            //     requestAnimationFrame(draw);
-            // }
-
-            // draw();
-
+           
                 
 
 
 
-            const data = null;
+            const data = null;    //To show the horsepowers 
 
             const xhr = new XMLHttpRequest();
             xhr.withCredentials = true;
@@ -326,8 +362,8 @@
 
             
  
-            const url = 'https://transfermarket.p.rapidapi.com/news/list-by-club?id=631&domain=de';
-            const options = {
+            const url = 'https://transfermarket.p.rapidapi.com/news/list-by-club?id=631&domain=de';      //To show the players news
+            const options = {                                                    
                 method: 'GET',
                 headers: {
                     'X-RapidAPI-Key': '006b4b0c4emsh380ce7533ec2cdap1a6e26jsn43880e8a1e1c',
