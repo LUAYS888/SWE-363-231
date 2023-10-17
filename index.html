@@ -172,6 +172,8 @@
 
             <h1>Different Car Horse Powers</h1>
             <p id="CarPara"></p>
+            <h2>High Horse Powers</h2>
+            <p id="highHp"></p>
             <br>
             <br>
             <br>
@@ -337,14 +339,28 @@
            
                 
 
-            function printHp(carsArray1){
+            function printHp(carsArray1, place){
                 carsArray1.forEach(element => {
+                        if (place=== "CarPara"){
+                            document.getElementById(place).innerHTML += element.horsepower_hp
+
+                        }else{
+                            document.getElementById(place).innerHTML += element
+                        }
                         
-                        document.getElementById("CarPara").innerHTML += element.horsepower_hp
-                        document.getElementById("CarPara").innerHTML += " "
+                        document.getElementById(place).innerHTML += " "
                         
                         
                      })
+
+            }
+            function printHighHp(allHp){   //To print high horse powers (>= 300)
+                const hp=[]
+                allHp.forEach(car => {
+                    hp.push(car.horsepower_hp)
+                })
+                const highHps= hp.filter(hp => hp >= 300)
+                printHp(highHps, "highHp")
 
             }
 
@@ -357,7 +373,8 @@
                 if (this.readyState === this.DONE) {
                      //console.log(xhr.response.data);
                      let myArray= xhr.response.data
-                     printHp(myArray)
+                     printHp(myArray, "CarPara")
+                     printHighHp(myArray)
                     
                     
                 }
