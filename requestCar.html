@@ -92,7 +92,7 @@
                 </datalist>
                 
             </div>
-
+                                            <!--The sign place-->
             <div class="toolbar">
                 <input type="color" aria-label="select pen color" value="#008000">    <!-- color panel -->
                 <input type="range" min="2" max="50" value="30" aria-label="select pen size"><span class="output">30</span>
@@ -127,17 +127,17 @@
 </body>
 
 <script>
-             const canvas = document.querySelector('.myCanvas');
+            const canvas = document.querySelector('.myCanvas');
             const width = canvas.width = 650;
             const height = canvas.height = 500;
             const ctx = canvas.getContext('2d');
 
-            ctx.fillStyle = 'rgb(0,0,0)';
-            ctx.fillRect(0, 0, 650, 500);
+            ctx.fillStyle = 'rgb(0,0,0)';            //The color
+            ctx.fillRect(0, 0, 650, 500);            //The position
             // window.innerHeight
 
-            const colorPicker = document.querySelector('input[type="color"]');
-            const sizePicker = document.querySelector('input[type="range"]');
+            const colorPicker = document.querySelector('input[type="color"]');     //Take the color form the input
+            const sizePicker = document.querySelector('input[type="range"]');       //Take the size from the input
             const output = document.querySelector('.output');
             const clearBtn = document.querySelector('#clearS');
 
@@ -174,7 +174,7 @@
                     ctx.fill();
                 }
 
-                requestAnimationFrame(draw);
+                requestAnimationFrame(draw);        //Recursively 
             }
 
             draw();

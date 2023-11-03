@@ -54,17 +54,29 @@ h1{
     text-transform: uppercase;
 }
 
-h2 p::first-letter{
+h2 p::first-letter{                 /* Apply the style to the first letter in p */
     font-size: x-large;         
 }
 
 tr:hover{
     background-color: sienna;
 }
-nav > p{
+nav > p{                       /* Only target the direct child */
     display: inline;
     margin: 6px;
 }
+
+nav + p{                       /* Only target the one comes directly after nav (in the same level) */
+  display: inline;
+  margin: 6px;
+}
+
+nav ~ p{                       /* (same level) but not necessary to be after it directly */
+  display: inline;
+  margin: 6px;
+}
+
+
 
 tr:nth-child(even) {
     background-color: rgb(74, 86, 74);        /* To make the cells alternative*/ 
@@ -103,7 +115,7 @@ tr:nth-child(even) {
     
     color: black;
     display: flex;
-    justify-content:flex-start;
+    justify-content:flex-start;             /* space-btw */
     align-items:flex-start;
     flex-direction: column;
     padding: 10px;
