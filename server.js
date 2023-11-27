@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.listen(2000, () => {
@@ -23,10 +25,20 @@ app.route("/")
         res.sendFile(path.join(__dirname, '/index.html'));   
     })
 
-app.route("/AskForAvailabiliy")
+app.route("/AskForAvailability")
     .get((req,res)=>{
+        console.log("get form")
         res.sendFile(path.join(__dirname, '/AskForAvailability.html'));   
     })
+
+app.post('/AskForAvailability', (req, res) => {
+        console.log("form submitted")
+        const name = req.body.name;
+        //console.log(name)
+        const email = req.body.email;
+        // do something with the name and email data
+        res.send('Data received');
+      });    
 
 app.route("/CarInsurance")
     .get((req,res)=>{
